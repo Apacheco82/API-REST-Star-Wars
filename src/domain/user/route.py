@@ -1,10 +1,11 @@
 from flask import request, jsonify
 from models.index import db, User
-import domain.user.controller as Controller
+import domain.user.controller as Controller #se importan todas las funciones del controller, si se hace asi vienen todas y no una a una
 
 def user_route(app):
 
     @app.route('/user', methods=['GET'])
+
     def get_users():
         all_users = User.query.all()
         # planet_serialized = [planet.serialize() for planet in all_planets] array comprehension
@@ -19,25 +20,11 @@ def user_route(app):
         user = User.query.get(id)
         return jsonify(user.serialize()), 200
 
-
+    #CREATE USER
     @app.route('/user', methods=['POST'])
     def create_user():
-        data = request.get_json()
-        user = user(user_name=data['user_name'],  # Agrega el nombre del user
-                    password=data['password'],
-                    name=data['name'],
-                    last_name=data['last_namelast_name'],
-                    email=data['email']
-                    )
-        db.session.add(user)
-        db.session.commit()
-
-        response = {
-            "result": {
-                "user": user.serialize(),
-            }
-        }
-        return response, 201
+        body = request.get_json()
+        return Controller.create_user(body), 201
 
 
     @app.route('/user/<int:id>', methods=['PUT'])

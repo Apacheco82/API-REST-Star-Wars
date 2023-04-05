@@ -9,4 +9,4 @@ def response_error(msg, status_code):
 
 
 def response_ok(data):
-    return jsonify(data), 200
+    return jsonify(data)

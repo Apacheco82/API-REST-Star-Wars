@@ -21,5 +21,5 @@ class User(db.Model):
             "name": self.name,
             "last_name": self.last_name,
             "email": self.email,
-            "fav" : list(map(lambda fav :fav.fav_serialize(), self.fav )) #mapeo para que se muestren los favoritos de cada usuario, se hace otra funcion serialize de fav para no devolver un bucle infinito
+           # "fav" : list(map(lambda fav :fav.fav_serialize(), self.fav )) #mapeo para que se muestren los favoritos de cada usuario, se hace otra funcion serialize de fav para no devolver un bucle infinito
         }
