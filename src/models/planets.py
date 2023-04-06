@@ -4,8 +4,8 @@ class Planet(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250),unique=True, nullable=False)
-    rotation_period = db.Column(db.Integer, nullable=False)
-    orbital_period = db.Column(db.Integer, nullable=False)
+    rotation_period = db.Column(db.String(250), nullable=False)
+    orbital_period = db.Column(db.String(250), nullable=False)
     diameter = db.Column(db.Integer, nullable=False)
     climate = db.Column(db.String(250), nullable=False)
     gravity = db.Column(db.Integer, nullable=False)

@@ -5,7 +5,7 @@ class User(db.Model):
     # Definimos las db.Columnas de la tabla Planet
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String, nullable=False)
+    password = db.Column(db.String(80), nullable=False)
     name = db.Column(db.String(250), nullable=False)
     last_name = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)

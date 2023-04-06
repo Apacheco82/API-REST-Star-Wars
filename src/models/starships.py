@@ -4,19 +4,19 @@ from models.db import db
 class Starship(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(250), nullable=False)
+    name = db.Column(db.String(250), unique=True,nullable=False)
     model = db.Column(db.String(250), nullable=False)
     manufacturer = db.Column(db.String(250), nullable=False)
     starship_class = db.Column(db.String(250), nullable=False)
     cost_in_credits = db.Column(db.Integer, nullable=False)
-    length = db.Column(db.Integer, nullable=False)
+    length = db.Column(db.String(250), nullable=False)
     crew = db.Column(db.Integer, nullable=False)
     passengers = db.Column(db.Integer, nullable=False)
     max_atmosphering_speed = db.Column(db.Integer, nullable=False)
     hyperdrive_rating = db.Column(db.String(250), nullable=False)
     mglt = db.Column(db.Integer, nullable=False)
     cargo_capacity = db.Column(db.Integer, nullable=False)
-    consumables = db.Column(db.Integer)
+    consumables = db.Column(db.String(250))
     fav = db.relationship("Fav", back_populates= "starship")
     pilots = db.relationship("Pilots", back_populates="starship")
 

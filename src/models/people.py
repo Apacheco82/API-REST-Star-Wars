@@ -4,11 +4,11 @@ class People(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True, nullable=False)
-    height = db.Column(db.Integer, nullable=False)
-    mass = db.Column(db.String, nullable=False)
+    height = db.Column(db.String(250), nullable=False)
+    mass = db.Column(db.String(250), nullable=False)
     skin_color = db.Column(db.String(250), nullable=False)
     eye_color = db.Column(db.String(250), nullable=False)
-    birth_year = db.Column(db.Integer, nullable=False)
+    birth_year = db.Column(db.String(80), nullable=False)
     gender = db.Column(db.String(250))
     homeworld_planet = db.Column(db.Integer, db.ForeignKey("planet.id"))
     Homeworld = db.relationship("Planet", back_populates="people") #el campo del planeta natal
