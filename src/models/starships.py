@@ -41,6 +41,8 @@ class Starship(db.Model):
             "consumables": self.consumables, 
             "hyperdrive_rating": self.hyperdrive_rating,
             "mglt" : self.mglt,
-            "pilots" : list(map(lambda pilots: pilots.serialize(), self.pilots ))
+            "pilots" : list(map(lambda pilots: pilots.serialize(), self.pilots )) 
         }
+
+
 

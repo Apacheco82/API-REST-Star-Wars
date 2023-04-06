@@ -13,8 +13,6 @@ class Fav(db.Model):
     id_starship = db.Column(db.Integer, db.ForeignKey("starship.id"))
     starship = db.relationship("Starship", back_populates= "fav")
 
-    def __repr__(self):
-        return  '%r' % self.id #para las relaciones, en lugar de mostrar el id
 
     def serialize(self):
         return {
@@ -22,11 +20,14 @@ class Fav(db.Model):
             "user" : self.user,
             "id_user" : self.id_user,
             "id_planet" : self.id_planet,
-            "id_people" : self.id_people
-        }
-    def fav_serialize(self):
-        return {
-            "id_user" : self.id_user,
             "id_people" : self.id_people,
-            "id_planet" : self.id_planet
+            "id_starship" : self.id_starship
+        }
+    def fav_serialize(self): #se crea esta funcion para usarla en el mapeo de user para devolver los datos de los favoritos del usuario
+        return { #se omite el user para no volver a serializar cada vez los favoritos del user y que no sea recursivo
+            #"id_user" : self.id_user,
+            "id_people" : self.id_people,
+            "id_planet" : self.id_planet,
+            "id_starship" : self.id_starship
+
         }
