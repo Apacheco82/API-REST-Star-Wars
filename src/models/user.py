@@ -9,7 +9,7 @@ class User(db.Model):
     name = db.Column(db.String(250), nullable=False)
     last_name = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
-    fav = db.relationship("Fav", back_populates= "user")
+    fav = db.relationship("Fav", back_populates= "user") #"user" hace referencia al campo user de la tabla Fav
 
     def __repr__(self):
         return  '%r' % self.user_name #para las relaciones, en lugar de mostrar el id

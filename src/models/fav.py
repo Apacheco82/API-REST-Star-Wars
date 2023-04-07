@@ -5,13 +5,13 @@ class Fav(db.Model):
     # Definimos las db.Columnas de la tabla Planet
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey("user.id"))
-    user = db.relationship("User", back_populates="fav")
+    user = db.relationship("User", back_populates="fav") #"fav" hace referencia al campo fav de la tabla User
     id_planet = db.Column(db.Integer, db.ForeignKey("planet.id"))
-    planet = db.relationship("Planet", back_populates="fav")
+    planet = db.relationship("Planet", back_populates="fav") #"fav" hace referencia al campo fav de la tabla Planet
     id_people = db.Column(db.Integer, db.ForeignKey("people.id"))
-    people = db.relationship("People", back_populates="fav")
+    people = db.relationship("People", back_populates="fav") #"fav" hace referencia al campo fav de la tabla People
     id_starship = db.Column(db.Integer, db.ForeignKey("starship.id"))
-    starship = db.relationship("Starship", back_populates= "fav")
+    starship = db.relationship("Starship", back_populates= "fav") #"fav" hace referencia al campo fav de la tabla Starship
 
 
     def serialize(self):

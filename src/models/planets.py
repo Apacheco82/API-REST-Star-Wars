@@ -12,8 +12,8 @@ class Planet(db.Model):
     terrain = db.Column(db.String(250), nullable=False)
     surface_water = db.Column(db.Integer, nullable=False)
     population = db.Column(db.Integer, nullable=False)
-    people = db.relationship("People")
-    fav = db.relationship("Fav")
+    people = db.relationship("People") #no ponemos backpopulates porque no vamos a administrarlo en esta tabla
+    fav = db.relationship("Fav", back_populates="planet") #"planet" hace referencia al campo planet de la tabla Fav
 
     def __repr__(self):
         return  '%r' % self.name #para las relaciones, en lugar de mostrar el id

@@ -17,8 +17,8 @@ class Starship(db.Model):
     mglt = db.Column(db.Integer, nullable=False)
     cargo_capacity = db.Column(db.Integer, nullable=False)
     consumables = db.Column(db.String(250))
-    fav = db.relationship("Fav", back_populates= "starship")
-    pilots = db.relationship("Pilots", back_populates="starship")
+    fav = db.relationship("Fav", back_populates= "starship") #"starship" hace referencia al campo starship de la tabla Fav
+    pilots = db.relationship("Pilots", back_populates="starship")# "starship" hace referencia al campo starship de la tabla Pilots
 
 
 
