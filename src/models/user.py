@@ -11,6 +11,13 @@ class User(db.Model):
     email = db.Column(db.String(250), unique=True, nullable=False)
     fav = db.relationship("Fav", back_populates= "user") #"user" hace referencia al campo user de la tabla Fav
 
+    def __init__(self, user_name, password, name, last_name, email):
+        self.user_name = user_name
+        self.password = password
+        self.name = name
+        self.last_name = last_name
+        self.email = email
+
     def __repr__(self):
         return  '%r' % self.user_name #para las relaciones, en lugar de mostrar el id
 

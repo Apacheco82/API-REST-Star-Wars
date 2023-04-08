@@ -79,7 +79,6 @@ def get_all():
             "people": people_serialized,
             "starships": starship_serialized,
             "user": user_serialized
-
         }
     }
 
