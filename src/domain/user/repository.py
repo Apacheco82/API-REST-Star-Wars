@@ -50,10 +50,13 @@ def modify_user(id):
 
 
 def delete_user(id):
+    
+
     user = User.query.get(id)  # la query va en repositorio
     if user is None:  # si el usuario viene vacio
         return user  # retorno la variable como none
     else:
+        #pasarle la funcion para borrar todos los favoritos antes
         db.session.delete(user)
         db.session.commit()
 

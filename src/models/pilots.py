@@ -3,7 +3,6 @@ from models.db import db
 class Pilots(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    current = db.Column(db.Boolean(), unique=False, nullable=False)
     id_people = db.Column(db.Integer, db.ForeignKey("people.id"))
     people = db.relationship("People", back_populates="pilots") #"pilots" hace referencia al campo pilots de la tabla People
     id_starship = db.Column(db.Integer, db.ForeignKey("starship.id"))
@@ -14,8 +13,7 @@ class Pilots(db.Model):
 
     def serialize(self):
         return {
-            #"id": self.id,
-            "current" : self.current, 
+            "id": self.id,
             "id_people" : self.id_people,
-            #"id_starship" : self.id_starship   
+            "id_starship" : self.id_starship   
         }
