@@ -12,8 +12,7 @@ def get_fav():
 def planet_fav(data):
     # aqui van a ir las validaciones
     if data['id_planet'] is None or data['id_planet'] == '':
-        return Response.response_error('planeta not valid', 400)
-
+        return Response.response_ok("No ha introducido ningun planeta")
 
     resultado = Repository.planet_fav(data)
     return Response.response_ok(resultado)
