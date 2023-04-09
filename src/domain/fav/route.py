@@ -24,6 +24,7 @@ def fav_route(app):
     def delete_single_fav(id):
         return Controller.delete_single_fav(id)
 
-    @app.route('/user/fav' , methods=['DELETE'])
-    def delete_all_fav():
-        return Controller.delete_all_fav()
+    @app.route('/user/fav/user/<int:id_user>', methods=['DELETE'])
+    def delete_all_fav(id_user):
+        resultado = Controller.delete_all_fav(id_user)
+        return resultado

@@ -10,14 +10,11 @@ def get_fav():
 
 def add_fav(data):
     if data.get('id_planet') is not None:
-        favorite_type = 'planet'
-        favorite_id = data['id_planet']
+        fav = data['id_planet']
     elif data.get('id_people') is not None:
-        favorite_type = 'people'
-        favorite_id = data['id_people']
+        fav = data['id_people']
     elif data.get('id_starship') is not None:
-        favorite_type = 'starship'
-        favorite_id = data['id_starship']
+        fav = data['id_starship']
     else:
         return Response.response_error('Debe proporcionar un solo tipo de favorito', 400)
 
@@ -29,17 +26,23 @@ def add_fav(data):
      #   return Response.response_error('La combinación de favorito ya existe', 400)
 
     resultado = Repository.add_fav(data)
-
     return Response.response_ok(resultado)
 
-
-
-
-def starship_fav(id):
-    pass
-
 def delete_single_fav(id):
-    pass
+    if not isinstance(id, int):
+        return Response.response_error("Id is not a valid number", 404)
 
-def delete_all_fav():
-    pass
+    resultado = Repository.delete_single_fav(id) #usando como param el id 
+    if resultado is not None:
+        return Response.response_ok("fav deleted") #se utiliza la variable resultado para pasarla a response y que devuelva un msg  
+    else:
+        return Response.response_error("Id not found", 404)
+
+def delete_all_fav(id_user):
+
+    if not isinstance(id, int):
+        return Response.response_error("Id not found", 404)
+    
+
+    resultado = Repository.delete_all_fav(id_user)
+    return Response.response_ok(resultado)

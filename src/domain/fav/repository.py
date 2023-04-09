@@ -10,7 +10,6 @@ def get_fav():
     return fav_serialized
 
 
-
 #def check_duplicate_favorites(id_planet, id_people, id_starship, id_user):
  #   return Fav.query.filter_by(id_planet=id_planet, id_people=id_people, id_starship=id_starship, id_user=id_user).first() is not None
     #usa el método query de SQLAlchemy para buscar registros en la tabla Fav que tengan los mismos valores 
@@ -31,7 +30,15 @@ def add_fav(data):
 
 
 def delete_single_fav(id):
-    pass
+    fav = Fav.query.get(id)  # la query va en repositorio
+    if fav is None:  # si el usuario viene vacio
+        return fav  # retorno la variable como none
+    else:
+        db.session.delete(fav)
+        db.session.commit()
 
-def delete_all_fav():
-    pass
+    return fav
+
+def delete_all_fav(id_user):
+    Fav.query.filter_by(id_user=id_user).delete()
+    db.session.commit()
