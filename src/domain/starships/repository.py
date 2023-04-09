@@ -19,19 +19,8 @@ def get_single_starship(id):  # el id se pasa como param de la funcion
 
 def create_starship(data):
 
-    starship = Starship(name=data['name'],
-                        model=data['model'],
-                        manufacturer=data['manufacturer'],
-                        starship_class=data['starship_class'],
-                        cost_in_credits=data['cost_in_credits'],
-                        length=data['length'],
-                        crew=data['crew'],
-                        passengers=data['passengers'],
-                        max_atmosphering_speed=data['max_atmosphering_speed'],
-                        hyperdrive_rating=data['hyperdrive_rating'],
-                        mglt=data['mglt'],
-                        cargo_capacity=data['cargo_capacity'],
-                        consumables=data['consumables'])
+    starship = Starship(data['name'], data['model'], data['manufacturer'], data['starship_class'], data['cost_in_credits'], data['length'], data['crew'], data['passengers'], data['max_atmosphering_speed'], data['hyperdrive_rating'], data['mglt'], data['cargo_capacity'], data['consumables'])
+
     db.session.add(starship)
     db.session.commit()
 

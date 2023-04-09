@@ -25,6 +25,21 @@ class Starship(db.Model):
     def __repr__(self):
         return  '%r' % self.name #para las relaciones, en lugar de mostrar el id
 
+    def __init__(self, name, model, manufacturer, starship_class, cost_in_credits, length, crew, passengers, max_atmosphering_speed, hyperdrive_rating, mglt, cargo_capacity, consumables=None):
+        self.name = name
+        self.model = model
+        self.manufacturer = manufacturer
+        self.starship_class = starship_class
+        self.cost_in_credits = cost_in_credits
+        self.length = length
+        self.crew = crew
+        self.passengers = passengers
+        self.max_atmosphering_speed = max_atmosphering_speed
+        self.hyperdrive_rating = hyperdrive_rating
+        self.mglt = mglt
+        self.cargo_capacity = cargo_capacity
+        self.consumables = consumables
+
     def serialize(self):
         return {
             "id": self.id,

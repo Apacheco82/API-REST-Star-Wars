@@ -10,6 +10,10 @@ class Pilots(db.Model):
 
     def __repr__(self):
         return  '%r' % self.id_people #para las relaciones, en lugar de mostrar el id
+        
+    def __init__(self, id_people, id_starship):
+        self.id_people = id_people
+        self.id_starship = id_starship
 
     def serialize(self):
         return {

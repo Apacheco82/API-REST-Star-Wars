@@ -18,6 +18,16 @@ class People(db.Model):
     def __repr__(self):
         return  '%r' % self.name #para las relaciones, en lugar de mostrar el id
 
+    def __init__(self, name, height, mass, skin_color, eye_color, birth_year, gender, homeworld_planet):
+        self.name = name
+        self.height = height
+        self.mass = mass
+        self.skin_color = skin_color
+        self.eye_color = eye_color
+        self.birth_year = birth_year
+        self.gender = gender
+        self.homeworld_planet = homeworld_planet
+
     def serialize(self):
         return {
             "id": self.id,

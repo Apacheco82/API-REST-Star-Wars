@@ -19,14 +19,14 @@ def get_single_people(id):  # el id se pasa como param de la funcion
 
 def create_people(data):
 
-    people = People(name=data['name'],  # Agrega el nombre del planeta
-                        height=data['height'],
-                        mass=data['mass'],
-                        skin_color=data['skin_color'],
-                        eye_color=data['eye_color'],
-                        birth_year=data['birth_year'],
-                        gender=data['gender'],
-                        homeworld_planet=data['homeworld_planet'])
+    people = People(data['name'],  # Agrega el nombre del planeta
+                        data['height'],
+                        data['mass'],
+                        data['skin_color'],
+                        data['eye_color'],
+                        data['birth_year'],
+                        data['gender'],
+                        data['homeworld_planet'])
     db.session.add(people)
     db.session.commit()
 

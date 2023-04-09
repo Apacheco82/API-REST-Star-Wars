@@ -18,6 +18,17 @@ class Planet(db.Model):
     def __repr__(self):
         return  '%r' % self.name #para las relaciones, en lugar de mostrar el id
 
+    def __init__(self, name, rotation_period, orbital_period, diameter, climate, gravity, terrain, surface_water, population):
+        self.name = name
+        self.rotation_period = rotation_period
+        self.orbital_period = orbital_period
+        self.diameter = diameter
+        self.climate = climate
+        self.gravity = gravity
+        self.terrain = terrain
+        self.surface_water = surface_water
+        self.population = population
+
 
     def serialize(self):
         return {

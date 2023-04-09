@@ -19,15 +19,15 @@ def get_single_planet(id):  # el id se pasa como param de la funcion
 
 def create_planet(data):
 
-    planet = Planet(name=data['name'],  # Agrega el nombre del planeta
-                        rotation_period=data['rotation_period'],
-                        orbital_period=data['orbital_period'],
-                        diameter=data['diameter'],
-                        climate=data['climate'],
-                        gravity=data['gravity'],
-                        terrain=data['terrain'],
-                        surface_water=data['surface_water'],
-                        population=data['population'])
+    planet = Planet(data['name'],  # Agrega el nombre del planeta
+                        data['rotation_period'],
+                        data['orbital_period'],
+                        data['diameter'],
+                        data['climate'],
+                        data['gravity'],
+                        data['terrain'],
+                        data['surface_water'],
+                        data['population'])
     db.session.add(planet)
     db.session.commit()
 
