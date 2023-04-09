@@ -15,19 +15,10 @@ def fav_route(app):
        return Controller.get_single_fav(id) # el id se pasa como param de la funcion
 
     @app.route('/user/fav', methods=['POST'])
-    def planet_fav():
+    def add_fav():
         body = request.get_json()
-        return Controller.planet_fav(body), 201
-    
-    @app.route('/user/fav', methods=['POST'])
-    def people_fav(id):
-        body = request.get_json()
-        return Controller.people_fav(body), 201
-
-    @app.route('/user/fav', methods=['POST'])
-    def starship_fav(id):
-        body = request.get_json()
-        return Controller.starship_fav(body), 201
+        resultado = Controller.add_fav(body)
+        return resultado
 
     @app.route('/user/fav/<int:id>', methods=['DELETE'])
     def delete_single_fav(id):

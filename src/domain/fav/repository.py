@@ -11,27 +11,24 @@ def get_fav():
 
 
 
-def planet_fav(data):
-
-    if data['id_planet'] is not None:
-        fav = Fav(data['id_user'],  
-                data['id_planet'],
-                None,
-                None
-                )
-
-        db.session.add(fav)
-        db.session.commit()
-        return fav.fav_serialize()
-
-        #comentar con cristian 
+#def check_duplicate_favorites(id_planet, id_people, id_starship, id_user):
+ #   return Fav.query.filter_by(id_planet=id_planet, id_people=id_people, id_starship=id_starship, id_user=id_user).first() is not None
+    #usa el método query de SQLAlchemy para buscar registros en la tabla Fav que tengan los mismos valores 
+    # de id_planet, id_people, id_starship e id_user que los valores proporcionados en la solicitud. 
+    # Si encuentra algún registro que coincida, devuelve True; de lo contrario, devuelve False.
 
 
-def people_fav(data):
-    pass
 
-def starship_fav(data):
-    pass
+def add_fav(data):
+    fav = Fav(
+        data['id_user'],data['id_planet'],data['id_people'],data['id_starship']
+    )
+
+    db.session.add(fav)
+    db.session.commit()
+
+    return fav.fav_serialize()
+
 
 def delete_single_fav(id):
     pass
