@@ -9,19 +9,23 @@ def get_fav():
         map(lambda fav: fav.fav_serialize(), all_fav))  # se llama a la funcion que serializa todo excepto el otro mapeo
     return fav_serialized
 
-#crear get fav por usuario id
+
 
 def planet_fav(data):
-    #chequeo para que no exista el id que le pasamos como favorito antes de añadirlo
-    fav = Fav(data['id_user'],  # Agrega el nombre del user
-                data['id_planet'],
-                data['id_people'],
-                data['id_starship']
-                )
-    db.session.add(fav)
-    db.session.commit()
 
-    return fav.fav_serialize()
+    if data['id_planet'] is not None:
+        fav = Fav(data['id_user'],  
+                data['id_planet'],
+                None,
+                None
+                )
+
+        db.session.add(fav)
+        db.session.commit()
+        return fav.fav_serialize()
+
+        #comentar con cristian 
+
 
 def people_fav(data):
     pass

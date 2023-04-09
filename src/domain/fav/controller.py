@@ -7,9 +7,17 @@ def get_fav():
     resultado = Repository.get_fav()
     return Response.response_ok(resultado) #se utiliza la variable resultado para pasarla a response y que devuelva un msg 
 
+
+
 def planet_fav(data):
-    resultado = Repository.planet_fav(data) # se llama a la funcion de creacion de usuarios de repository
-    return Response.response_ok(resultado) #se utiliza la variable resultado para pasarla a response
+    # aqui van a ir las validaciones
+    if data['id_planet'] is None or data['id_planet'] == '':
+        return Response.response_error('planeta not valid', 400)
+
+
+    resultado = Repository.planet_fav(data)
+    return Response.response_ok(resultado)
+
 
 
 def people_fav(id):

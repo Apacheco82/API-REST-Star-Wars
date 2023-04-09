@@ -1,0 +1,9 @@
+    user_id = data.get('user_id')
+    planet_id = data.get('planet_id')
+    # Verificar si el usuario ya tiene ese id planet como favorito
+    if planet_id in Repository.get_single_fav(user_id):
+        return Response.response_error("El planeta ya está en la lista de favoritos del usuario")
+
+    # Verificar que el planet_id sea numérico
+    if not planet_id.isdigit():
+        return Response.response_error("El valor del planeta no es válido")
