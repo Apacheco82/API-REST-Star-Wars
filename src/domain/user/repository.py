@@ -23,15 +23,15 @@ def get_single_user(id):  # el id se pasa como param de la funcion
 def create_user(data):
 
     user = User(data['user_name'],  # Agrega el nombre del user
-                data['password'],
+                data['password'], # se agregan los campos del usuario
                 data['name'],
                 data['last_name'],
                 data['email']
                 )
-    db.session.add(user)
+    db.session.add(user) #se crea en bd
     db.session.commit()
 
-    return user.serialize()
+    return user.serialize() 
 
 
 def modify_user(id):
@@ -57,7 +57,7 @@ def delete_user(id):
     if user is None:  # si el usuario viene vacio
         return user  # retorno la variable como none
     else:
-        delete_all_fav(user.id) #se borran los favoritos antes de borrar el propio usuario
+        delete_all_fav(user.id) #se borran los favoritos antes de borrar el propio usuario, para poder hacer esto hay que importarlo arriba
         db.session.delete(user)
         db.session.commit()
 
