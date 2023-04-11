@@ -15,8 +15,8 @@ def get_users():
 def get_single_user(id):  # el id se pasa como param de la funcion
 
     user = User.query.get(id)  # la query va en repositorio
-   # print (user)
-    # para llamar al id se llama a la clase user, metodo query.get pasandole el id como param
+    #print (user)
+    #para llamar al id se llama a la clase user, metodo query.get pasandole el id como param
     return user
 
 
