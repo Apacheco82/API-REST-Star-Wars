@@ -22,15 +22,17 @@ def get_user_fav(id_user):  # el id se pasa como param de la funcion
 def add_fav(data):
     if data.get('id_planet') is not None:
         fav = data['id_planet']
+        #print(data.get('id_planet'))
     elif data.get('id_people') is not None:
         fav = data['id_people']
     elif data.get('id_starship') is not None:
         fav = data['id_starship']
     else:
-        return Response.response_error('Debe proporcionar un solo tipo de favorito', 400)
+        return Response.response_error('Debe proporcionar un solo tipo de favorito', 400) #si todos los campos están null
+    
 
-    if sum(map(lambda x: x is not None, [data.get('id_planet'), data.get('id_people'), data.get('id_starship')])) > 1:
-        return Response.response_error('Debe proporcionar solo un tipo de favorito', 400)
+    if sum(map(lambda x: x is not None, [data.get('id_planet'), data.get('id_people'), data.get('id_starship')])) > 1: #comprueba cuantos valores son true y hace la suma, si se pasa más de un valor devuelve más de dos, por eso le pasamos como funcion al mapeo "is not None" 
+        return Response.response_error('Debe proporcionar solo un tipo de favorito', 400) #si tiene más de un campo relleno
 
     resultado = Repository.add_fav(data)
     if resultado is None:
