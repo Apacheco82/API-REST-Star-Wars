@@ -1,70 +1,43 @@
-# Flask Boilerplate for Profesional Development
+Star Wars REST API
+------------------
+This project is a RESTful API for Star Wars, with tables for pilots, planets, starships, users, and favorites. It provides a complete CRUD (Create, Read, Update, Delete) interface for all the tables, allowing users to modify data as needed. The API is built using Python, Flask, and SQLAlchemy.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
-<p align="center">
-    <a href="https://youtu.be/ORxQ-K3BzQA"><img height="200px" src="https://github.com/4GeeksAcademy/flask-rest-hello/blob/main/docs/assets/how-to.png?raw=true?raw=true" /></a>
-</p>
+Requirements
+Python 3.x
+Flask
+SQLAlchemy
 
-## Features
+API Endpoints
+------------------
+The following endpoints are available:
 
-- Extensive documentation [here](https://start.4geeksacademy.com).
-- Integrated with Pipenv for package managing.
-- Fast deloyment to heroku with `$ pipenv run deploy`.
-- Use of `.env` file.
-- SQLAlchemy integration for database abstraction.
+/pilots: CRUD operations for pilots
 
-## Installation (automatic if you are using gitpod)
+/planets: CRUD operations for planets
 
-> Important: The boiplerplate is made for python 3.7 but you can easily change the `python_version` on the Pipfile.
+/starships: CRUD operations for starships
 
-The following steps are automatically runned withing gitpod, if you are doing a local installation you have to do them manually:
+/users: CRUD operations for users
 
-```sh
-pipenv install;
-mysql -u root -e "CREATE DATABASE example";
-pipenv run init;
-pipenv run migrate;
-pipenv run upgrade;
-```
-
-## How to Start coding?
-
-There is an example API working with an example database. All your application code should be written inside the `./src/` folder.
-
-- src/main.py (it's where your endpoints should be coded)
-- src/models.py (your database tables and serialization logic)
-- src/utils.py (some reusable classes and functions)
-- src/admin.py (add your models to the admin and manage your data easily)
-
-For a more detailed explanation, look for the tutorial inside the `docs` folder.
-
-## Remember to migrate every time you change your models
-
-You have to migrate and upgrade the migrations for every update you make to your models:
-
-```bash
-$ pipenv run migrate #(to make the migrations)
-$ pipenv run upgrade  #(to update your databse with the migrations)
-```
+/favorites: CRUD operations for favorites
 
 
-# Manual Installation for Ubuntu & Mac
+Contributing
+------------------
+If you would like to contribute to this project, please follow the standard Github flow:
 
-⚠️ Make sure you have `python 3.6+` and `MySQL` installed on your computer and MySQL is running, then run the following commands:
-```sh
-$ pipenv install (to install pip packages)
-$ pipenv run migrate (to create the database)
-$ pipenv run start (to start the flask webserver)
-```
+Fork the repository -> 
+Create a new branch (git checkout -b feature/<feature-name>)
 
+Make your changes -> 
+Commit your changes (git commit -am 'Add some feature')
 
-## Publish/Deploy your website!
+Push to the branch (git push origin feature/<feature-name>)
 
-This boilerplate it's 100% read to deploy with Render.com and Herkou in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
+Create a new Pull Request
 
+Using the Boilerplate
+------------------
+This project includes a projectreadme.md file that provides instructions for using the included boilerplate code. The boilerplate code includes pre-built templates and functions for common API features like authentication, error handling, and database management.
 
-### Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
-
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
+To use the boilerplate code, follow the instructions in projectreadme.md. Once you have set up the boilerplate code, you can customize the API to suit your needs.
