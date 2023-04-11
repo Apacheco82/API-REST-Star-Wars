@@ -12,9 +12,9 @@ def user_route(app):
 
     @app.route('/user/<int:id>', methods=['GET'])
     def get_single_user(id):  # el id se pasa como param de la funcion
-       return Controller.get_single_user(id) # el id se pasa como param de la funcion
+       return Controller.get_single_user(id) 
 
-    #CREATE USERplanet o peoplle / id
+    
     @app.route('/user', methods=['POST'])
     def create_user():
         body = request.get_json()
