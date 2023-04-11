@@ -1,4 +1,5 @@
 from models.index import db, Starship
+from domain.pilots.repository import delete_all_pilots
 from flask import request, jsonify
 
 
@@ -55,7 +56,7 @@ def delete_starship(id):
         if starship is None: #si el usuario viene vacio
             return starship #retorno la variable como none
         else:
-            #pasarle la funcion para borrar todos los pilotos antes
+            delete_all_pilots(starship.id)
             db.session.delete(starship)
             db.session.commit()
 

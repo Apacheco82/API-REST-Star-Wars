@@ -7,7 +7,6 @@ def get_fav():
     resultado = Repository.get_fav()
     return Response.response_ok(resultado) #se utiliza la variable resultado para pasarla a response y que devuelva un msg 
 
-
 def add_fav(data):
     if data.get('id_planet') is not None:
         fav = data['id_planet']
@@ -21,12 +20,11 @@ def add_fav(data):
     if sum(map(lambda x: x is not None, [data.get('id_planet'), data.get('id_people'), data.get('id_starship')])) > 1:
         return Response.response_error('Debe proporcionar solo un tipo de favorito', 400)
 
-    # Chequeo para evitar la inserción de una combinación de favoritos ya existente
-    #if Repository.check_duplicate_favorites(data['id_user'], favorite_type, favorite_id):
-     #   return Response.response_error('La combinación de favorito ya existe', 400)
-
     resultado = Repository.add_fav(data)
-    return Response.response_ok(resultado)
+    if resultado is None:
+        return Response.response_error('favorito duplicado', 400)
+    else:
+        return Response.response_ok(resultado)
 
 def delete_single_fav(id):
     if not isinstance(id, int):
@@ -40,9 +38,8 @@ def delete_single_fav(id):
 
 def delete_all_fav(id_user):
 
-    if not isinstance(id, int):
+    if not isinstance(id_user, int):
         return Response.response_error("Id not found", 404)
     
-
     resultado = Repository.delete_all_fav(id_user)
-    return Response.response_ok(resultado)
+    return Response.response_ok("all favs were deleted")

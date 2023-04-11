@@ -1,4 +1,5 @@
 from models.index import db, User
+from domain.fav.repository import delete_all_fav #el import de la funcion para borrar favoritos
 from flask import request, jsonify
 
 
@@ -56,7 +57,7 @@ def delete_user(id):
     if user is None:  # si el usuario viene vacio
         return user  # retorno la variable como none
     else:
-        #pasarle la funcion para borrar todos los favoritos antes
+        delete_all_fav(user.id) #se borran los favoritos antes de borrar el propio usuario
         db.session.delete(user)
         db.session.commit()
 
