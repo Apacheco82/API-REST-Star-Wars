@@ -24,9 +24,9 @@ def add_pilots(data):
         return pilot.serialize()
 
 
-def delete_single_pilot(id):
+def delete_single_pilot(id_starship, id_people):
     
-    pilot = Pilots.query.get(id)  # la query va en repositorio
+    pilot = Pilots.query.filter_by(id_starship=id_starship, id_people=id_people).first()  # la query va en repositorio
     if pilot is None:  # si el usuario viene vacio
         return pilot  # retorno la variable como none
     else:

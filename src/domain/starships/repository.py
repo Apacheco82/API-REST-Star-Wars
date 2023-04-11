@@ -36,7 +36,7 @@ def modify_starship(id):
         starship.name = data['name']
         starship.model = data['model']
         starship.manufacturer = data['manufacturer']
-        starship.starship_class = data['diameter']
+        starship.starship_class = data['starship_class']
         starship.cost_in_credits = data['cost_in_credits']
         starship.length = data['length']
         starship.crew = data['crew']
@@ -46,7 +46,7 @@ def modify_starship(id):
         starship.consumables = data['consumables']
         starship.hyperdrive_rating = data['hyperdrive_rating']
         starship.mglt = data['mglt']
-        starship.pilots = data['pilots']
+        #starship.pilots = data['pilots']
         db.session.commit()
 
     return starship.serialize()      

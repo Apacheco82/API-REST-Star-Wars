@@ -15,11 +15,11 @@ def add_pilots(data):
     else:
         return Response.response_ok(resultado)
 
-def delete_single_pilot(id):
-    if not isinstance(id, int):
+def delete_single_pilot(id_starship, id_people):
+    if not isinstance(id_people, int):
         return Response.response_error("Id is not a valid number", 404)
 
-    resultado = Repository.delete_single_pilot(id) #usando como param el id 
+    resultado = Repository.delete_single_pilot(id_starship, id_people) #usando como param el id 
     if resultado is not None:
         return Response.response_ok("pilot deleted") #se utiliza la variable resultado para pasarla a response y que devuelva un msg  
     else:

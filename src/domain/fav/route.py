@@ -10,9 +10,9 @@ def fav_route(app):
         #aqui se retorna el resultado de controller por si quieres hacer validaciones
         return Controller.get_fav()
 
-    @app.route('/user/fav/<int:id>', methods=['GET'])
-    def get_single_fav(id):  # el id se pasa como param de la funcion
-       return Controller.get_single_fav(id) # el id se pasa como param de la funcion
+    @app.route('/user/fav/<int:id_user>', methods=['GET'])
+    def get_user_fav(id_user):  # el id se pasa como param de la funcion
+       return Controller.get_user_fav(id_user) # el id se pasa como param de la funcion
 
     @app.route('/user/fav', methods=['POST'])
     def add_fav():

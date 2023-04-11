@@ -15,9 +15,9 @@ def pilots_route(app):
         resultado = Controller.add_pilots(body)
         return resultado
 
-    @app.route('/starships/pilots/<int:id>', methods=['DELETE'])
-    def delete_single_pilot(id):
-        return Controller.delete_single_pilot(id)
+    @app.route('/starships/pilots/<int:id_starship>/<int:id_people>', methods=['DELETE'])
+    def delete_single_pilot(id_starship, id_people):
+        return Controller.delete_single_pilot(id_starship, id_people)
 
     @app.route('/starships/pilots/starship/<int:id_starship>', methods=['DELETE'])
     def delete_all_pilots(id_starship):

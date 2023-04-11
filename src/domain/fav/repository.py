@@ -9,6 +9,13 @@ def get_fav():
         map(lambda fav: fav.fav_serialize(), all_fav))  # se llama a la funcion que serializa todo excepto el otro mapeo
     return fav_serialized
 
+def get_user_fav(id_user):  # el id se pasa como param de la funcion
+
+    user_fav = Fav.query.filter_by(id_user=id_user).all()#la query va en repositorio
+        # para llamar al id se llama a la clase fav, metodo query.get pasandole el id como param
+    fav_serialized = list(
+        map(lambda fav: fav.fav_serialize(), user_fav))  # se llama a la funcion que serializa todo excepto el otro mapeo
+    return fav_serialized
 
 def add_fav(data):
     busqueda = Fav.query.filter_by(id_user=data['id_user'], id_planet=data['id_planet'],
